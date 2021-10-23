@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/custom-select.css">
+    <title>UberClean</title>
+</head>
+<body>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new CustomSelect('#contact-select', {
+                name: 'Service',
+                targetValue: 'Select Service',
+                options: [
+                    ['Service 1', 'Российское'],
+                    ['Service 2', 'Украинское'],
+                    ['Service 3', 'Беларусское'],
+                ],
+                onSelected(select, option) {
+                    // выбранное значение
+                    console.log(`Выбранное значение: ${select.value}`);
+                    // индекс выбранной опции
+                    console.log(`Индекс выбранной опции: ${select.selectedIndex}`);
+                    // выбранный текст опции
+                    const text = option ? option.textContent : '';
+                    console.log(`Выбранный текст опции: ${text}`);
+                },
+            });
+            document.querySelector('.select').addEventListener('select.change', (e) => {
+                const btn = e.target.querySelector('.select__toggle');
+                // выбранное значение
+                console.log(`Выбранное значение: ${btn.value}`);
+                // индекс выбранной опции
+                console.log(`Индекс выбранной опции: ${btn.dataset.index}`);
+                // выбранный текст опции
+                const selected = e.target.querySelector('.select__option_selected');
+                const text = selected ? selected.textContent : '';
+                console.log(`Выбранный текст опции: ${text}`);
+            });
+        })
+</script>
+
+<div class="wrapper">
+
+    <header class="header">
+        <div class="header-desk">
+            <div class="container">
+                <div class="header-holder">
+                    <div class="header-content">
+                        <p class="desc">Требуются специалисты по уборке</p>
+                        <h1 class="title">Надежный доход и удобный график работы</h1>
+                        <a href="#btn-form" class="btn">Записаться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-img">
+                <img src="images/bg-header.jpg" width="874" height="auto" alt="#">
+            </div>
+        </div>
+        <div class="header-mobile">
+            <div class="container">
+                <strong><a href="#" class="logo-link"></a></strong>
+                <a href="#btn-form" class="btn">Записаться</a>
+                <div class="header-content">
+                    <p class="desc">Требуются специалисты по уборке</p>
+                    <h1 class="title">Надежный доход и удобный график работы</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="offer-block">
+            <div class="container">
+                <h2 class="title">Мы предлагаем</h2>
+                <ul class="offer-list">
+                    <li class="offer-item">
+                        <img class="img" src="icon/icon_01.svg" width="106" height="99" alt="#">
+                        <h3 class="subject">Выплаты вовремя</h3>
+                        <p class="text">Выплата на <br> банковскую карту. <br>2 раза в месяц.</p>
+                    </li>
+                    <li class="offer-item">
+                        <img class="img" src="icon/icon_02.svg" width="86" height="99" alt="#">
+                        <h3 class="subject">Удобное расписание</h3>
+                        <p class="text">Большой выбор графиков. Можно составить индивидуальный.</p>
+                    </li>
+                    <li class="offer-item">
+                        <img class="img" src="icon/icon_03.svg" width="93" height="99" alt="#">
+                        <h3 class="subject">Много заказов</h3>
+                        <p class="text">Скажите свои рабочие дни, а мы обеспечим заказами.</p>
+                    </li>
+                    <li class="offer-item">
+                        <img class="img" src="icon/icon_04.svg" width="59" height="99" alt="#">
+                        <h3 class="subject">Выдаем инвентарь</h3>
+                        <p class="text">Все необходимое для уборки предоставляет компания.</p>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+
+        <div class="info-block">
+            <div class="container">
+                <h2 class="title">Как стать частью команды?</h2>
+                <ol class="info-list">
+                    <li class="info-item">
+                        <h3 class="subject">Заполните <br> анкету</h3>
+                        <p class="text">Расскажите немного про себя. Нам важно познакомиться.</p>
+                    </li>
+                    <li class="info-item">
+                        <h3 class="subject">Оплачиваемая стажировка</h3>
+                        <p class="text">Выйдете на реальный заказа с опытным клинером. Стажировка полностью оплачивается</p>
+                    </li>
+                    <li class="info-item">
+                        <h3 class="subject">Работайте зарабатывайте</h3>
+                        <p class="text">Вы часть дружной команды. Сделайте свою жизнь стабильной с UberClean.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="form-block" id="btn-form">
+            <div class="container">
+                <h2 class="title">Анкета</h2>
+            </div>
+            <div class="form-holder">
+                <div class="container">
+                    <div class="form-wrapper">
+                        <div class="image-box">
+                            <img src="images/image-form.png" width="135" height="400" alt="#">
+                        </div>
+                        <form action="#" class="form">
+                            <div class="form-box">
+                                <label for="name" class="form-label">Ф.И.О.</label>
+                                <input type="text" id="name" class="form-input" required>
+                            </div>
+                            <div class="form-box">
+                                <label for="phone" class="form-label">Телефон</label>
+                                <div class="input-wrapper">
+                                    <span class="country-code">+7</span>
+                                    <input type="tel" id="phone" class="form-input input-phone" pattern="[0-9]{3}[0-9]{2}[0-9]{2}" placeholder="0000000" required>
+                                </div>
+                            </div>
+                            <div class="form-box">
+                                <label for="birthday" class="form-label">Дата рождения</label>
+                                <input type="text" id="birthday" class="form-input" required placeholder="22.03.1975">
+                            </div>
+                            <div class="form-box">
+                                <label for="contact-select" class="form-label">Гражданство</label>
+                                <div id="contact-select"></div>
+                            </div>
+                            <button class="form-btn">Записаться на собеседование</button>
+                        </form>
+                    </div>
+                </div>  
+            </div>  
+        </div>
+
+        <div class="faq-block">
+            <div class="container">
+                <h2 class="title">Отвечаем на вопросы</h2>
+                <ul class="faq-list">
+                    <li class="faq-item">
+                        <strong class="faq-strong">На первую уборку я поеду одна?</strong>
+                        <p class="faq-text">Нет. На первый заказ вы едите с опытным клинером, <br> вашим наставником.</p>
+                    </li>
+                    <li class="faq-item">
+                        <strong class="faq-strong">Мне оплатят стажировку?</strong>
+                        <p class="faq-text">Да, стажировка оплачивается. Ведь вы едите на полноценный заказ.</p>
+                    </li>
+                    <li class="faq-item">
+                        <strong class="faq-strong">Что мне нужно делать на уборке?</strong>
+                        <p class="faq-text">Это все расскажут на собеседовании. Потом все повторят на уборке на практике. И выдадим очень подробную инструкцию.</p>
+                    </li>
+                    <li class="faq-item">
+                        <strong class="faq-strong">Какой у меня будет график работы?</strong>
+                        <p class="faq-text">У нас большие и гибкие возможности. Поэтому вы можете составить свой график работы. Указать время в которое принимаете заказы. <br> Самые популярные графики в нашей компании 5/2  6/1  2/2</p>
+                    </li>
+                    <li class="faq-item">
+                        <strong class="faq-strong">Что взять с собой на первую уборку?</strong>
+                        <p class="faq-text">Весь инвентарь будет у вашего наставника. Вам нужно только взять сменную одежду для комфортной работы. После стажировки вам предоставят форму.</p>
+                    </li>
+                </ul>
+                <div class="btn-wrapper">
+                    <a href="#btn-form" class="btn">Записаться</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+
+    </footer>
+    
+
+
+</div>
+
+
+<script src="js/script.js"></script>
+<script src="js/custom-select.js"></script>
+</body>
+</html>
